@@ -1,0 +1,51 @@
+/// Generates variables for all buttons. Please note that you must use interpolation on the variable: <code>#{$all-button-inputs}</code>.
+///
+/// @example scss - Usage
+///   #{all-button-inputs} {
+///     background-color: #f00;
+///   }
+///
+///   #{all-button-inputs-focus},
+///   #{all-button-inputs-hover} {
+///     background-color: #0f0;
+///   }
+///
+///   #{all-button-inputs-active} {
+///     background-color: #00f;
+///   }
+///
+/// @example css - CSS Output
+///   button,
+///   input[type="button"],
+///   input[type="reset"],
+///   input[type="submit"] {
+///     background-color: #f00;
+///   }
+///
+///   button:focus,
+///   input[type="button"]:focus,
+///   input[type="reset"]:focus,
+///   input[type="submit"]:focus,
+///   button:hover,
+///   input[type="button"]:hover,
+///   input[type="reset"]:hover,
+///   input[type="submit"]:hover {
+///     background-color: #0f0;
+///   }
+///
+///   button:active,
+///   input[type="button"]:active,
+///   input[type="reset"]:active,
+///   input[type="submit"]:active {
+///     background-color: #00f;
+///   }
+
+$buttons-list: 'button',
+               'input[type="button"]',
+               'input[type="reset"]',
+               'input[type="submit"]';
+
+$all-button-inputs:        assign-inputs($buttons-list);
+$all-button-inputs-active: assign-inputs($buttons-list, active);
+$all-button-inputs-focus:  assign-inputs($buttons-list, focus);
+$all-button-inputs-hover:  assign-inputs($buttons-list, hover);
